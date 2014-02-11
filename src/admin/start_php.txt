@@ -1,0 +1,7 @@
+<!--BOF - Barzahlen - 2013-05-15: Barzahlen Version Check-->
+<table width="100%" cellspacing="0" cellpadding="0" border="0" style="font-family: 'Arial', sans-serif; background-color: #fdac00;">
+  <tr>
+    <td><?php include(DIR_WS_MODULES . "barzahlen_version_check.php"); ?></td>
+  </tr>
+</table>
+<!--EOF - Barzahlen - 2013-05-15: Barzahlen Version Check-->

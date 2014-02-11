@@ -80,7 +80,7 @@ class db_handler
         mysql_query("TRUNCATE TABLE " . TABLE_ORDERS);
         mysql_query("TRUNCATE TABLE " . TABLE_ORDERS_STATUS_HISTORY);
         mysql_query("TRUNCATE TABLE " . TABLE_ORDERS_TOTAL);
-        mysql_close();
+
     }
 }
 
