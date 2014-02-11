@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @copyright   Copyright (c) 2012 Zerebro Internet GmbH (http://www.barzahlen.de)
+ * @copyright   Copyright (c) 2013 Zerebro Internet GmbH (http://www.barzahlen.de)
  * @author      Mathias Hertlein
  * @license     http://opensource.org/licenses/GPL-2.0  GNU General Public License, version 2 (GPL-2.0)
  */
@@ -30,7 +30,7 @@ class BarzahlenConfigRepository
     /**
      * Gets the last update date
      *
-     * @return bool|DateTime
+     * @return bool|int
      */
     public function getLastUpdateDate()
     {
@@ -43,7 +43,7 @@ SQL;
         $result = xtc_db_fetch_array($resource);
 
         if (is_array($result)) {
-            $lastUpdate = new DateTime($result['configuration_value']);
+            $lastUpdate = strtotime($result['configuration_value']);
         } else {
             $lastUpdate = false;
         }

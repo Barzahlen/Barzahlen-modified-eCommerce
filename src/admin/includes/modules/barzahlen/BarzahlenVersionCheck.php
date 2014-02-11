@@ -17,7 +17,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @copyright   Copyright (c) 2012 Zerebro Internet GmbH (http://www.barzahlen.de)
+ * @copyright   Copyright (c) 2013 Zerebro Internet GmbH (http://www.barzahlen.de)
  * @author      Mathias Hertlein
  * @license     http://opensource.org/licenses/GPL-2.0  GNU General Public License, version 2 (GPL-2.0)
  */
@@ -28,7 +28,7 @@
 class BarzahlenVersionCheck
 {
     const SHOP_SYSTEM = "modified";
-    const PLUGIN_VERSION = "1.1.6";
+    const PLUGIN_VERSION = "1.1.7";
 
     /**
      * @var BarzahlenPluginCheckRequest
@@ -53,15 +53,14 @@ class BarzahlenVersionCheck
     /**
      * Checks if version was checked in last week
      *
-     * @param DateTime $now
+     * @param int $now
      * @return bool
      */
     public function isCheckedInLastWeek($now)
     {
         $lastUpdate = $this->configRepository->getLastUpdateDate();
         if ($lastUpdate) {
-            $lastUpdateTimestamp = $lastUpdate->getTimestamp();
-            $isChecked = ($now->getTimestamp() - $lastUpdateTimestamp) < 60 * 60 * 24 * 7;
+            $isChecked = ($now - $lastUpdate) < 60 * 60 * 24 * 7;
         } else {
             $isChecked = false;
         }

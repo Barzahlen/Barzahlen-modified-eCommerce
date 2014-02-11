@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * @copyright   Copyright (c) 2013 Zerebro Internet GmbH (http://www.barzahlen.de)
- * @author      Alexander Diebler
+ * @author      Mathias Hertlein
  * @license     http://opensource.org/licenses/GPL-2.0  GNU General Public License, version 2 (GPL-2.0)
  */
 
@@ -40,7 +40,7 @@ $barzahlenRepository = new BarzahlenConfigRepository();
 $barzahlenVersionCheck = new BarzahlenVersionCheck($barzahlenVersionCheckRequest, $barzahlenRepository);
 
 try {
-    if (MODULE_PAYMENT_BARZAHLEN_STATUS == "True" && !$barzahlenVersionCheck->isCheckedInLastWeek(new DateTime())) {
+    if (MODULE_PAYMENT_BARZAHLEN_STATUS == "True" && !$barzahlenVersionCheck->isCheckedInLastWeek(time())) {
         $barzahlenVersionCheck->check(MODULE_PAYMENT_BARZAHLEN_SHOPID, MODULE_PAYMENT_BARZAHLEN_PAYMENTKEY, PROJECT_VERSION);
         $displayUpdateAvailableMessage = $barzahlenVersionCheck->isNewVersionAvailable();
         $barzahlenNewestVersion = $barzahlenVersionCheck->getNewestVersion();
@@ -56,12 +56,8 @@ try {
 <?php
 if ($displayUpdateAvailableMessage) {
 ?>
-
-<div>
-    <div style="float: left; margin-right: 10px;"></div>
-    <div style="float: left;"><?php echo sprintf(MODULE_PAYMENT_BARZAHLEN_NEW_VERSION, $barzahlenNewestVersion) ?></div>
-    <div style="clear: both"></div>
+<div style="border: 1px solid #FF0000; background-color: #FDAC00; width: 100%; margin-left: 5px; margin-top: 10px; font-family: 'Arial', sans-serif;">
+<?php echo sprintf(MODULE_PAYMENT_BARZAHLEN_NEW_VERSION, $barzahlenNewestVersion) ?>
 </div>
-
 <?php
 }
