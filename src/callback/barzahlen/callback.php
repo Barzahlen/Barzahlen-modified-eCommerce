@@ -1,6 +1,6 @@
 <?php
 /**
- * Barzahlen Payment Module (xtcModified)
+ * Barzahlen Payment Module (modified eCommerce)
  *
  * NOTICE OF LICENSE
  *

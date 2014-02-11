@@ -1,6 +1,6 @@
 <?php
 /**
- * Barzahlen Payment Module (xtcModified)
+ * Barzahlen Payment Module (modified eCommerce)
  *
  * NOTICE OF LICENSE
  *
@@ -107,6 +107,9 @@ function xtc_image($path) {
 }
 function xtc_redirect($path) {
   return $path;
+}
+function xtc_href_link($file, $settings, $ssl) {
+  return $file;
 }
 
 /**
