@@ -28,7 +28,7 @@
 class BarzahlenVersionCheck
 {
     const SHOP_SYSTEM = "modified";
-    const PLUGIN_VERSION = "1.1.7";
+    const PLUGIN_VERSION = "1.1.8";
 
     /**
      * @var BarzahlenPluginCheckRequest
